@@ -1,4 +1,7 @@
+*.DS_Store
+
 # generated files
+target/
 bin/
 gen/
 
@@ -9,3 +12,7 @@ local.properties
 .settings/
 .classpath
 .project
+
+# Gradle
+.gradle
+build

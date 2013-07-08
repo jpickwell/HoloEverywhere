@@ -417,13 +417,17 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return false;
+        return true;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         LayoutInflater.removeInstance(this);
+    }
+
+    public boolean onHomePressed() {
+        return false;
     }
 
     /**
@@ -491,6 +495,9 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home && onHomePressed()) {
+            return true;
+        }
         return false;
     }
 
@@ -510,7 +517,7 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        return false;
+        return true;
     }
 
     @Override

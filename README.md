@@ -31,7 +31,8 @@ Bringing Holo Theme from Android 4.1 to 2.1 and above.
  * [Meditation Assistant](https://play.google.com/store/apps/details?id=sh.ftp.rocketninelabs.meditationassistant)
  * [Ragnabase MVP](https://play.google.com/store/apps/details?id=com.ragnabase.mvp)
  * [noodles - To Do List](https://play.google.com/store/apps/details?id=com.makeramen.noodles)
-
+ * [otoMoto](https://play.google.com/store/apps/details?id=pl.otomoto)
+ 
 Write to [Sergey](mailto:prototypegamez@gmail.com) for add your application to this list.
 
 ## Contact
@@ -47,7 +48,7 @@ Christophe:
 ## License
 MIT License, full text of license see [here][License]
 
-[Demo APK]: https://oss.sonatype.org/content/repositories/releases/org/holoeverywhere/demo/1.6.1/demo-1.6.1-aligned.apk "Demo APK"
+[Demo APK]: https://oss.sonatype.org/content/repositories/releases/org/holoeverywhere/demo/1.6.8/demo-1.6.8-aligned.apk "Demo APK"
 [Donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=X7E7U7HNR36YN&lc=US&item_name=HoloEverywhere&currency_code=USD&bn=PP%2dDonationsBF%3adonate_button%2epng%3aNonHosted "Donate"
 [Build with Maven]: https://github.com/Prototik/HoloEverywhere/wiki/Maven "Build with maven"
 [License]: https://raw.github.com/Prototik/HoloEverywhere/master/LICENSE "LGPLv3"
