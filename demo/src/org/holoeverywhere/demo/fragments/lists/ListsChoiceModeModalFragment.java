@@ -6,7 +6,8 @@ import org.holoeverywhere.widget.ArrayAdapter;
 import org.holoeverywhere.widget.ListView;
 import org.holoeverywhere.widget.ListView.MultiChoiceModeListener;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -84,7 +85,7 @@ public class ListsChoiceModeModalFragment extends ListsBaseFragment implements
                 R.layout.simple_list_item_multiple_choice));
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void updateSubtitle(ActionMode mode) {
         mode.setSubtitle("Checked: " + mList.getCheckedItemCount());
     }

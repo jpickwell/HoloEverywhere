@@ -1,8 +1,9 @@
 
 package org.holoeverywhere.widget;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -106,8 +107,8 @@ public class MultiAutoCompleteTextView extends AutoCompleteTextView {
         event.setClassName(MultiAutoCompleteTextView.class.getName());
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
         info.setClassName(MultiAutoCompleteTextView.class.getName());

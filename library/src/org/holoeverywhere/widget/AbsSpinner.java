@@ -3,12 +3,13 @@ package org.holoeverywhere.widget;
 
 import org.holoeverywhere.R;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.Rect;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -170,20 +171,19 @@ public abstract class AbsSpinner extends AdapterView<SpinnerAdapter> {
     abstract void layout(int delta, boolean animate);
 
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
         event.setClassName(AbsSpinner.class.getName());
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
         info.setClassName(AbsSpinner.class.getName());
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);

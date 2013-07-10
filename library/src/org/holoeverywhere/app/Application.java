@@ -21,9 +21,10 @@ import org.holoeverywhere.addon.IAddonBasicAttacher;
 import org.holoeverywhere.preference.PreferenceManagerHelper;
 import org.holoeverywhere.preference.SharedPreferences;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Bundle;
 
 public class Application extends android.app.Application implements
@@ -141,13 +142,11 @@ public class Application extends android.app.Application implements
     }
 
     @Override
-    @SuppressLint("NewApi")
     public void startActivities(Intent[] intents) {
         startActivities(intents, null);
     }
 
     @Override
-    @SuppressLint("NewApi")
     public void startActivities(Intent[] intents, Bundle options) {
         for (Intent intent : intents) {
             startActivity(intent, options);
@@ -155,7 +154,6 @@ public class Application extends android.app.Application implements
     }
 
     @Override
-    @SuppressLint("NewApi")
     public void startActivity(Intent intent) {
         startActivity(intent, null);
     }
@@ -179,8 +177,8 @@ public class Application extends android.app.Application implements
         return super.getSystemService(name);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    @SuppressLint("NewApi")
     public void superStartActivity(Intent intent, int requestCode,
             Bundle options) {
         if (VERSION.SDK_INT >= 16) {

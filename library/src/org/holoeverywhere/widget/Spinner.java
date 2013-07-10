@@ -4,7 +4,7 @@ package org.holoeverywhere.widget;
 import org.holoeverywhere.R;
 import org.holoeverywhere.app.AlertDialog;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -12,6 +12,7 @@ import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -554,8 +555,8 @@ public class Spinner extends AbsSpinner implements OnClickListener {
         event.setClassName(Spinner.class.getName());
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
         info.setClassName(Spinner.class.getName());

@@ -12,10 +12,12 @@ import org.holoeverywhere.internal.NumberPickerEditText;
 import org.holoeverywhere.util.Arrays;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -84,7 +86,7 @@ public class DatePicker extends FrameLayout {
     }
 
     private static class SavedState extends BaseSavedState {
-        @SuppressWarnings("all")
+        @SuppressWarnings("unused")
         public static final Creator<SavedState> CREATOR = new Creator<SavedState>() {
             @Override
             public SavedState createFromParcel(Parcel in) {
@@ -169,6 +171,7 @@ public class DatePicker extends FrameLayout {
         this(context, attrs, R.attr.datePickerStyle);
     }
 
+    @SuppressLint("SimpleDateFormat")
     public DatePicker(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         TypedArray a = context.obtainStyledAttributes(attrs,
@@ -243,7 +246,7 @@ public class DatePicker extends FrameLayout {
         }
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
         onPopulateAccessibilityEvent(event);
@@ -315,13 +318,11 @@ public class DatePicker extends FrameLayout {
     }
 
     @Override
-    @SuppressLint("NewApi")
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setLocale(newConfig.locale);
     }
 
-    @SuppressLint("NewApi")
     @Override
     public void onPopulateAccessibilityEvent(AccessibilityEvent event) {
         if (VERSION.SDK_INT >= 14) {
@@ -441,6 +442,7 @@ public class DatePicker extends FrameLayout {
         spinner.getInputField().setImeOptions(imeOptions);
     }
 
+    @SuppressWarnings("deprecation")
     public void setLocale(Locale locale) {
         if (locale == null || locale.equals(this.locale)) {
             return;

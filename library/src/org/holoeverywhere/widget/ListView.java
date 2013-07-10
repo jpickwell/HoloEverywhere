@@ -78,7 +78,6 @@ public class ListView extends android.widget.ListView implements OnWindowFocusCh
             setLongClickable(true);
         }
 
-        @SuppressLint("NewApi")
         @Override
         public void onItemCheckedStateChanged(ActionMode mode,
                 int position, long id, boolean checked) {
@@ -223,7 +222,6 @@ public class ListView extends android.widget.ListView implements OnWindowFocusCh
         this(context, attrs, android.R.attr.listViewStyle);
     }
 
-    @SuppressLint("NewApi")
     public ListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         if (context instanceof Activity) {
@@ -346,7 +344,6 @@ public class ListView extends android.widget.ListView implements OnWindowFocusCh
     }
 
     @Override
-    @SuppressLint("NewApi")
     public int getCheckedItemCount() {
         return mCheckedItemCount;
     }
@@ -459,7 +456,6 @@ public class ListView extends android.widget.ListView implements OnWindowFocusCh
     }
 
     @Override
-    @SuppressLint("NewApi")
     public boolean isInScrollingContainer() {
         ViewParent p = getParent();
         while (p != null && p instanceof ViewGroup) {
@@ -954,7 +950,6 @@ public class ListView extends android.widget.ListView implements OnWindowFocusCh
         setSelector(DrawableCompat.getDrawable(getResources(), resID));
     }
 
-    @SuppressLint("NewApi")
     protected final void setStateOnView(View child, boolean value) {
         if (child instanceof Checkable) {
             ((Checkable) child).setChecked(value);

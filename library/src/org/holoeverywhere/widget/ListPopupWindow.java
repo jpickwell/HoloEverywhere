@@ -3,7 +3,6 @@ package org.holoeverywhere.widget;
 
 import org.holoeverywhere.R;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.DataSetObserver;
@@ -585,7 +584,6 @@ public class ListPopupWindow {
         return false;
     }
 
-    @SuppressLint("NewApi")
     public boolean onKeyPreIme(int keyCode, KeyEvent event) {
         if (VERSION.SDK_INT < 5) {
             return false;

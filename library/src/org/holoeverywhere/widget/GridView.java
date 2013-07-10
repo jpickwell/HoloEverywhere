@@ -14,12 +14,14 @@ import org.holoeverywhere.widget.HeaderViewListAdapter.ViewInfo;
 import org.holoeverywhere.widget.ListAdapterWrapper.ListAdapterCallback;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.app._HoloActivity.OnWindowFocusChangeListener;
@@ -63,7 +65,7 @@ public class GridView extends android.widget.GridView implements OnWindowFocusCh
             return false;
         }
 
-        @SuppressLint("NewApi")
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             mWrapped.onDestroyActionMode(mode);
@@ -73,7 +75,7 @@ public class GridView extends android.widget.GridView implements OnWindowFocusCh
             setLongClickable(true);
         }
 
-        @SuppressLint("NewApi")
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
         @Override
         public void onItemCheckedStateChanged(ActionMode mode,
                 int position, long id, boolean checked) {
@@ -218,7 +220,7 @@ public class GridView extends android.widget.GridView implements OnWindowFocusCh
         this(context, attrs, android.R.attr.gridViewStyle);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public GridView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         if (context instanceof Activity) {
@@ -326,7 +328,6 @@ public class GridView extends android.widget.GridView implements OnWindowFocusCh
     }
 
     @Override
-    @SuppressLint("NewApi")
     public int getCheckedItemCount() {
         return mCheckedItemCount;
     }
@@ -430,8 +431,8 @@ public class GridView extends android.widget.GridView implements OnWindowFocusCh
         return mForceHeaderListAdapter;
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
-    @SuppressLint("NewApi")
     public boolean isInScrollingContainer() {
         ViewParent p = getParent();
         while (p != null && p instanceof ViewGroup) {
@@ -923,7 +924,7 @@ public class GridView extends android.widget.GridView implements OnWindowFocusCh
         setSelector(DrawableCompat.getDrawable(getResources(), resID));
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected final void setStateOnView(View child, boolean value) {
         if (child instanceof Checkable) {
             ((Checkable) child).setChecked(value);

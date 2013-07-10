@@ -10,7 +10,6 @@ import org.holoeverywhere.HoloEverywhere.PreferenceImpl;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.app.Application;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -83,7 +82,6 @@ public class PreferenceManager {
                 readAgain);
     }
 
-    @SuppressLint("NewApi")
     public static void setDefaultValues(Context context,
             String sharedPreferencesName, int sharedPreferencesMode, int resId,
             boolean readAgain) {
@@ -451,7 +449,6 @@ public class PreferenceManager {
         mFragment = fragment;
     }
 
-    @SuppressLint("NewApi")
     private void setNoCommit(boolean noCommit) {
         if (!noCommit && mEditor != null) {
             try {

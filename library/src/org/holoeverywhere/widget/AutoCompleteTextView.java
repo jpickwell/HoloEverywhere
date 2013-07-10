@@ -4,12 +4,13 @@ package org.holoeverywhere.widget;
 import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.R;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.Editable;
 import android.text.InputType;
@@ -400,8 +401,8 @@ public class AutoCompleteTextView extends EditText implements
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
-    @SuppressLint("NewApi")
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (mPopup.onKeyDown(keyCode, event)) {
             return true;
@@ -428,7 +429,6 @@ public class AutoCompleteTextView extends EditText implements
     }
 
     @Override
-    @SuppressLint("NewApi")
     public boolean onKeyPreIme(int keyCode, KeyEvent event) {
         if (VERSION.SDK_INT < 5) {
             return false;
@@ -456,8 +456,8 @@ public class AutoCompleteTextView extends EditText implements
         return super.onKeyPreIme(keyCode, event);
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
-    @SuppressLint("NewApi")
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         boolean consumed = mPopup.onKeyUp(keyCode, event);
         if (consumed) {
@@ -678,7 +678,7 @@ public class AutoCompleteTextView extends EditText implements
         mValidator = validator;
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public void showDropDown() {
         buildImeCompletions();
         if (mPopup.getAnchorView() == null) {

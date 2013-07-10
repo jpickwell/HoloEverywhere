@@ -44,10 +44,12 @@ import org.holoeverywhere.app.ContextThemeWrapperPlus;
 import org.holoeverywhere.preference.PreferenceManagerHelper;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.SparseIntArray;
 
@@ -939,7 +941,7 @@ public final class ThemeManager {
     /**
      * Only for system use
      */
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static void startActivity(Context context, Intent intent,
             int requestCode, Bundle options) {
         final Activity activity = context instanceof Activity ? (Activity) context

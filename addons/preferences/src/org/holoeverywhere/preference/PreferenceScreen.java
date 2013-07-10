@@ -8,10 +8,11 @@ import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.app.Dialog;
 import org.holoeverywhere.widget.ListView;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -238,7 +239,7 @@ public final class PreferenceScreen extends PreferenceGroup implements
         return myState;
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void showDialog(Bundle state) {
         Context preferenceContext = getContext();
         Context context = PreferenceInit.unwrap(getContext());

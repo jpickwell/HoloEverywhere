@@ -172,7 +172,6 @@ public class AddonSlider extends IAddon {
             return super.onHomePressed();
         }
 
-        @SuppressLint("NewApi")
         @Override
         public void onPostCreate(Bundle savedInstanceState) {
             if (mSliderMenu != null) {

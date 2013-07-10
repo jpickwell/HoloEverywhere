@@ -26,8 +26,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.util.Log;
 
@@ -217,7 +218,8 @@ public class _SharedPreferencesImpl_JSON extends _SharedPreferencesBase {
     private File file;
     private final String fileTag;
 
-    @SuppressLint("NewApi")
+    @SuppressWarnings("deprecation")
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     public _SharedPreferencesImpl_JSON(Context context, String name, int mode) {
         setCharset("utf-8");
         try {

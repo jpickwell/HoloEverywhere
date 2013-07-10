@@ -4,7 +4,6 @@ package org.holoeverywhere.preference;
 import org.holoeverywhere.widget.SeekBar;
 import org.holoeverywhere.widget.SeekBar.OnSeekBarChangeListener;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -98,7 +97,6 @@ public class VolumePreference extends SeekBarDialogPreference implements
             return mSeekBar;
         }
 
-        @SuppressLint("NewApi")
         private void initSeekBar(SeekBar seekBar, Uri defaultUri) {
             setMaxValue(mAudioManager.getStreamMaxVolume(mStreamType));
             mOriginalStreamVolume = mAudioManager.getStreamVolume(mStreamType);

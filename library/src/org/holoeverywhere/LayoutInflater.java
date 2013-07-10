@@ -19,7 +19,6 @@ import org.holoeverywhere.widget.FrameLayout;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -321,6 +320,7 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public View _createView(String name, String prefix, AttributeSet attrs)
             throws ClassNotFoundException, InflateException {
         Constructor<? extends View> constructor = sConstructorMap.get(name);
@@ -694,7 +694,7 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
         }
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     private View prepareView(View view) {
         if (HoloEverywhere.DISABLE_OVERSCROLL_EFFECT && VERSION.SDK_INT >= 9) {
             view.setOverScrollMode(View.OVER_SCROLL_NEVER);
@@ -786,6 +786,7 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
         mFragmentActivity = fragmentActivity;
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected LayoutInflater setParent(android.view.LayoutInflater original) {
         if (original == this) {
             return this;

@@ -3,9 +3,10 @@ package org.holoeverywhere.content;
 
 import org.holoeverywhere.app.Application;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
@@ -19,7 +20,7 @@ public final class IntentCompat {
      *      android:excludeFromRecents="true" /&gt;
      * </pre>
      */
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static Intent createChooser(Intent target, CharSequence title) {
         if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
             return Intent.createChooser(target, title);

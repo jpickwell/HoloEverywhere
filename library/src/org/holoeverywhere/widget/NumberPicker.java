@@ -8,6 +8,7 @@ import org.holoeverywhere.R;
 import org.holoeverywhere.internal.NumberPickerEditText;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -16,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -66,6 +68,7 @@ public class NumberPicker extends LinearLayout {
     }
 
     class InputTextFilter extends NumberKeyListener {
+        @SuppressLint("DefaultLocale")
         @Override
         public CharSequence filter(CharSequence source, int start, int end,
                 Spanned dest, int dstart, int dend) {
@@ -316,7 +319,7 @@ public class NumberPicker extends LinearLayout {
         this(context, attrs, R.attr.numberPickerStyle);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public NumberPicker(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         TypedArray attributesArray = context.obtainStyledAttributes(attrs,
@@ -528,8 +531,8 @@ public class NumberPicker extends LinearLayout {
         ensureCachedScrollSelectorValue(nextScrollSelectorIndex);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    @SuppressLint("NewApi")
     protected boolean dispatchHoverEvent(MotionEvent event) {
         if (!mHasSelectorWheel) {
             return super.dispatchHoverEvent(event);
@@ -672,6 +675,7 @@ public class NumberPicker extends LinearLayout {
         return mMinValue;
     }
 
+    @SuppressLint("DefaultLocale")
     private int getSelectedPos(String value) {
         if (mDisplayedValues != null) {
             for (int i = 0; i < mDisplayedValues.length; i++) {
@@ -880,8 +884,8 @@ public class NumberPicker extends LinearLayout {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
         event.setClassName(NumberPicker.class.getName());

@@ -1,14 +1,15 @@
 
 package org.holoeverywhere.internal;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEventSource;
 
-@SuppressLint("NewApi")
+@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class _View extends android.view.View implements Drawable.Callback,
         KeyEvent.Callback, AccessibilityEventSource {
     public static final int[] PRESSED_STATE_SET, SUPPORT_EMPTY_STATE_SET,

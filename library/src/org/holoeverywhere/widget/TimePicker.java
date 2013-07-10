@@ -9,11 +9,12 @@ import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.R;
 import org.holoeverywhere.internal.NumberPickerEditText;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.format.DateUtils;
@@ -234,7 +235,6 @@ public class TimePicker extends FrameLayout {
         setContentDescriptions();
     }
 
-    @SuppressLint("NewApi")
     @Override
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
         if (VERSION.SDK_INT >= 14) {
@@ -275,14 +275,15 @@ public class TimePicker extends FrameLayout {
         return mIsEnabled;
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.FROYO)
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setCurrentLocale(newConfig.locale);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @SuppressWarnings("deprecation")
     @Override
     public void onPopulateAccessibilityEvent(AccessibilityEvent event) {
         super.onPopulateAccessibilityEvent(event);

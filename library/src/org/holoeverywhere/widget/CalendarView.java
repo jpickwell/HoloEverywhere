@@ -10,6 +10,7 @@ import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.R;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -20,6 +21,7 @@ import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
@@ -52,8 +54,8 @@ public class CalendarView extends FrameLayout {
             postDelayed(this, CalendarView.SCROLL_CHANGE_DELAY);
         }
 
+        @TargetApi(Build.VERSION_CODES.FROYO)
         @Override
-        @SuppressLint("NewApi")
         public void run() {
             mCurrentScrollState = mNewState;
             if (mNewState == OnScrollListener.SCROLL_STATE_IDLE
@@ -464,6 +466,7 @@ public class CalendarView extends FrameLayout {
         this(context, attrs, R.attr.calendarViewStyle);
     }
 
+    @SuppressLint("SimpleDateFormat")
     public CalendarView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setCurrentLocale(Locale.getDefault());
@@ -594,7 +597,7 @@ public class CalendarView extends FrameLayout {
         return (int) ((endTimeMillis - startTimeMillis + dayOffsetMillis) / CalendarView.MILLIS_IN_WEEK);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void goTo(Calendar date, boolean animate, boolean setSelected,
             boolean forceScroll) {
         if (date.before(mMinDate) || date.after(mMaxDate)) {
@@ -653,7 +656,6 @@ public class CalendarView extends FrameLayout {
                         .get(Calendar.YEAR);
     }
 
-    @SuppressLint("NewApi")
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -849,6 +851,7 @@ public class CalendarView extends FrameLayout {
         mAdapter.notifyDataSetChanged();
     }
 
+    @SuppressWarnings("deprecation")
     private void setUpHeader(int weekDayTextAppearanceResId) {
         mDayLabels = new String[mDaysPerWeek];
         for (int i = mFirstDayOfWeek, count = mFirstDayOfWeek + mDaysPerWeek; i < count; i++) {
@@ -878,7 +881,7 @@ public class CalendarView extends FrameLayout {
         mDayNamesHeader.invalidate();
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setUpListView() {
         mListView.setDivider(null);
         mListView.setItemsCanFocus(true);

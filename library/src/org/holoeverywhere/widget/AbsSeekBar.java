@@ -4,12 +4,13 @@ package org.holoeverywhere.widget;
 import org.holoeverywhere.R;
 import org.holoeverywhere.internal._View;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -89,8 +90,8 @@ public abstract class AbsSeekBar extends ProgressBar {
         return false;
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
-    @SuppressLint("NewApi")
     public void jumpDrawablesToCurrentState() {
         super.jumpDrawablesToCurrentState();
         if (mThumb != null) {
@@ -110,14 +111,13 @@ public abstract class AbsSeekBar extends ProgressBar {
     }
 
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
         event.setClassName(AbsSeekBar.class.getName());
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
         info.setClassName(AbsSeekBar.class.getName());

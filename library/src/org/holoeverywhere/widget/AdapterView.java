@@ -5,9 +5,11 @@ import org.holoeverywhere.internal._ViewGroup;
 import org.holoeverywhere.util.ReflectHelper;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
@@ -144,7 +146,7 @@ public abstract class AdapterView<T extends Adapter> extends _ViewGroup {
         super(context, attrs);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public AdapterView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         if (VERSION.SDK_INT >= 16
@@ -441,7 +443,7 @@ public abstract class AdapterView<T extends Adapter> extends _ViewGroup {
         removeCallbacks(mSelectionNotifier);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
@@ -457,7 +459,7 @@ public abstract class AdapterView<T extends Adapter> extends _ViewGroup {
         event.setItemCount(getCount());
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
@@ -475,7 +477,7 @@ public abstract class AdapterView<T extends Adapter> extends _ViewGroup {
         mLayoutHeight = getHeight();
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public boolean onRequestSendAccessibilityEvent(View child,
             AccessibilityEvent event) {
@@ -575,7 +577,7 @@ public abstract class AdapterView<T extends Adapter> extends _ViewGroup {
 
     public abstract void setAdapter(T adapter);
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void setEmptyView(View emptyView) {
         mEmptyView = emptyView;
         if (VERSION.SDK_INT >= 16
@@ -652,6 +654,7 @@ public abstract class AdapterView<T extends Adapter> extends _ViewGroup {
 
     public abstract void setSelection(int position);
 
+    @SuppressLint("WrongCall")
     private void updateEmptyStatus(boolean empty) {
         if (isInFilterMode()) {
             empty = false;

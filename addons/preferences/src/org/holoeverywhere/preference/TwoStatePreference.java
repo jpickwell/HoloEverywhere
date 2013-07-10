@@ -1,10 +1,11 @@
 
 package org.holoeverywhere.preference;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -124,7 +125,7 @@ public abstract class TwoStatePreference extends Preference {
                 : (Boolean) defaultValue);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     void sendAccessibilityEvent(View view) {
         try {
             AccessibilityManager accessibilityManager = (AccessibilityManager) getContext()

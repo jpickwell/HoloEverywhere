@@ -1,9 +1,10 @@
 
 package org.holoeverywhere.widget;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.util.AttributeSet;
 import android.view.View;
@@ -23,7 +24,6 @@ public class DrawerLayout extends android.support.v4.widget.DrawerLayout {
         super(context, attrs, defStyle);
     }
 
-    @SuppressLint("NewApi")
     @Override
     protected boolean fitSystemWindows(Rect insets) {
         if (mFitSystemWindows) {
@@ -36,7 +36,7 @@ public class DrawerLayout extends android.support.v4.widget.DrawerLayout {
         return super.fitSystemWindows(insets);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void setFitsSystemWindows(boolean fitSystemWindows) {
         mFitSystemWindows = fitSystemWindows;

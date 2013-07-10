@@ -12,7 +12,7 @@ import org.holoeverywhere.util.PoolableManager;
 import org.holoeverywhere.util.Pools;
 import org.holoeverywhere.util.ReflectHelper;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -30,6 +30,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.graphics.drawable.shapes.Shape;
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -382,7 +383,7 @@ public class ProgressBar extends android.widget.ProgressBar {
         return mIndeterminate;
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void jumpDrawablesToCurrentState() {
         super.jumpDrawablesToCurrentState();
@@ -460,7 +461,7 @@ public class ProgressBar extends android.widget.ProgressBar {
         }
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
@@ -469,8 +470,8 @@ public class ProgressBar extends android.widget.ProgressBar {
         event.setCurrentItemIndex(mProgress);
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
-    @SuppressLint("NewApi")
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
         info.setClassName(ProgressBar.class.getName());
@@ -530,6 +531,7 @@ public class ProgressBar extends android.widget.ProgressBar {
         updateDrawableBounds(w, h);
     }
 
+    @TargetApi(Build.VERSION_CODES.FROYO)
     @Override
     public void onVisibilityChanged(View changedView, int visibility) {
         super.onVisibilityChanged(changedView, visibility);

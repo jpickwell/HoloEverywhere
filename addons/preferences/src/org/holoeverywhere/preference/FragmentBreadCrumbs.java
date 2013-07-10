@@ -5,8 +5,9 @@ import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.widget.LinearLayout;
 
 import android.animation.LayoutTransition;
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -63,6 +64,7 @@ public class FragmentBreadCrumbs extends ViewGroup implements
         this(context, null);
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public FragmentBreadCrumbs(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.style.Widget_FragmentBreadCrumbs);
     }
@@ -140,7 +142,7 @@ public class FragmentBreadCrumbs extends ViewGroup implements
         }
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         final int count = getChildCount();
@@ -172,7 +174,7 @@ public class FragmentBreadCrumbs extends ViewGroup implements
                         measuredChildState << View.MEASURED_HEIGHT_STATE_SHIFT));
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void setActivity(FragmentActivity a) {
         mActivity = a;
         mInflater = LayoutInflater.from(a);

@@ -13,8 +13,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.util.Log;
 
@@ -30,8 +31,8 @@ public final class _SharedPreferencesImpl_XML extends _SharedPreferencesBase {
             this.editor = editor;
         }
 
+        @TargetApi(Build.VERSION_CODES.GINGERBREAD)
         @Override
-        @SuppressLint("NewApi")
         public void apply() {
             if (VERSION.SDK_INT >= 9) {
                 editor.apply();
@@ -113,8 +114,8 @@ public final class _SharedPreferencesImpl_XML extends _SharedPreferencesBase {
             return this;
         }
 
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
         @Override
-        @SuppressLint("NewApi")
         public Editor putStringSet(String key, Set<String> value) {
             if (VERSION.SDK_INT >= 11) {
                 editor.putStringSet(key, value);
@@ -282,7 +283,7 @@ public final class _SharedPreferencesImpl_XML extends _SharedPreferencesBase {
         return prefs.getString(key, defValue2 == null ? defValue : defValue2);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public Set<String> getStringSet(String key, Set<String> defValue) {
         if (VERSION.SDK_INT >= 11) {

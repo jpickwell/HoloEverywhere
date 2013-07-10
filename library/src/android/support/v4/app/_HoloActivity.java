@@ -26,13 +26,14 @@ import org.holoeverywhere.preference.SharedPreferences;
 import org.holoeverywhere.util.SparseIntArray;
 import org.holoeverywhere.util.WeaklyMap;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources.Theme;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
@@ -338,7 +339,6 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
     }
 
     @Override
-    @SuppressLint("NewApi")
     public void onBackPressed() {
         if (!getSupportFragmentManager().popBackStackImmediate()) {
             finish();
@@ -434,6 +434,7 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
      * Do not override this method. Use {@link #onPreInit(Holo, Bundle)} and
      * {@link #onPostInit(Holo, Bundle)}
      */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected void onInit(Holo config, Bundle savedInstanceState) {
         if (mInited) {
             throw new IllegalStateException("This instance was already inited");
@@ -664,13 +665,13 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
 
     public abstract ActionMode startActionMode(ActionMode.Callback callback);
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void startActivities(Intent[] intents) {
         startActivities(intents, null);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void startActivities(Intent[] intents, Bundle options) {
         for (Intent intent : intents) {
@@ -678,19 +679,19 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
         }
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void startActivity(Intent intent) {
         startActivity(intent, null);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void startActivity(Intent intent, Bundle options) {
         startActivityForResult(intent, -1, options);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         startActivityForResult(intent, requestCode, null);
@@ -716,8 +717,8 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
         return super.getSystemService(name);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    @SuppressLint("NewApi")
     public void superStartActivity(Intent intent, int requestCode,
             Bundle options) {
         if (VERSION.SDK_INT >= 16) {
@@ -727,7 +728,7 @@ public abstract class _HoloActivity extends Watson implements SuperStartActivity
         }
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void supportInvalidateOptionsMenu() {
         if (VERSION.SDK_INT >= 11) {

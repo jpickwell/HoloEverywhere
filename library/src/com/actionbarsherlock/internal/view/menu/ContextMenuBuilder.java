@@ -3,10 +3,11 @@ package com.actionbarsherlock.internal.view.menu;
 
 import java.lang.reflect.Method;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.EventLog;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -78,7 +79,7 @@ public class ContextMenuBuilder extends MenuBuilder implements ContextMenu {
         return (ContextMenu) super.setHeaderViewInt(view);
     }
 
-    @SuppressLint("NewApi")
+    @TargetApi(Build.VERSION_CODES.FROYO)
     public MenuDialogHelper show(View originalView, IBinder token) {
         if (mListener == null) {
             throw new IllegalStateException(
