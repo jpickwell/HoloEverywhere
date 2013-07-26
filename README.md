@@ -10,7 +10,7 @@ Bringing Holo Theme from Android 4.1 to 2.1 and above.
 
 ## How to use?
 ### [Eclipse](https://github.com/Prototik/HoloEverywhere/wiki/Import-in-IDE#eclipse)
-### [IntelliJ IDEA](https://github.com/Prototik/HoloEverywhere/wiki/Import-in-IDE#intellij-idea)
+### [Android Studio / IntelliJ IDEA](https://github.com/Prototik/HoloEverywhere/wiki/Import-in-IDE#android-studio--intellij-idea)
 ### [Maven](https://github.com/Prototik/HoloEverywhere/wiki/Import-in-IDE#maven)
 
 ## Screenshots
@@ -29,6 +29,7 @@ Bringing Holo Theme from Android 4.1 to 2.1 and above.
  * [Project Euler](https://play.google.com/store/apps/details?id=ie.cathalcoffey.android.projecteuler)
  * [TimeAct To-Do](https://play.google.com/store/apps/details?id=timeact.app.task.manager)
  * [UnixAdmin](https://play.google.com/store/apps/details?id=org.kidinov.unixadmin)
+ * [AppSales. Best Apps on Sale](https://play.google.com/store/apps/details?id=net.tsapps.appsales)
  * [Meditation Assistant](https://play.google.com/store/apps/details?id=sh.ftp.rocketninelabs.meditationassistant)
  * [Ragnabase MVP](https://play.google.com/store/apps/details?id=com.ragnabase.mvp)
  * [noodles - To Do List](https://play.google.com/store/apps/details?id=com.makeramen.noodles)
