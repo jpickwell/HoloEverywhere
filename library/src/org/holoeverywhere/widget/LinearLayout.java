@@ -1,12 +1,13 @@
 
 package org.holoeverywhere.widget;
 
-import org.holoeverywhere.R;
-
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -16,6 +17,8 @@ import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+
+import org.holoeverywhere.R;
 
 public class LinearLayout extends android.widget.LinearLayout {
     public static final int HORIZONTAL = 0;
@@ -372,6 +375,7 @@ public class LinearLayout extends android.widget.LinearLayout {
         return mDividerWidth;
     }
 
+    @SuppressLint("Override")
     public int getLayoutDirection() {
         return LAYOUT_DIRECTION_LTR;
     }
@@ -430,7 +434,7 @@ public class LinearLayout extends android.widget.LinearLayout {
         return mBaselineAligned;
     }
 
-    protected boolean isLayoutRtl() {
+    public boolean isLayoutRtl() {
         return getLayoutDirection() == LAYOUT_DIRECTION_RTL;
     }
 
@@ -1078,12 +1082,14 @@ public class LinearLayout extends android.widget.LinearLayout {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
         event.setClassName(LinearLayout.class.getName());
     }
 
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);

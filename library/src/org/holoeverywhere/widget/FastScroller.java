@@ -1,9 +1,6 @@
 
 package org.holoeverywhere.widget;
 
-import org.holoeverywhere.R;
-import org.holoeverywhere.widget.FastScroller.FastScrollerCallback;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -23,8 +20,12 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ExpandableListAdapter;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.SectionIndexer;
 import android.widget.WrapperListAdapter;
+
+import org.holoeverywhere.R;
+import org.holoeverywhere.widget.FastScroller.FastScrollerCallback;
 
 class FastScroller<T extends AbsListView & FastScrollerCallback> {
     public static interface FastScrollerCallback {
@@ -384,7 +385,7 @@ class FastScroller<T extends AbsListView & FastScrollerCallback> {
         mScaledTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mMatchDragPosition = context.getApplicationInfo().targetSdkVersion >=
                 android.os.Build.VERSION_CODES.HONEYCOMB;
-        setScrollbarPosition(((FastScrollerCallback) mList).getVerticalScrollbarPosition());
+        setScrollbarPosition(mList.getVerticalScrollbarPosition());
     }
 
     public boolean isAlwaysShowEnabled() {
@@ -607,6 +608,7 @@ class FastScroller<T extends AbsListView & FastScrollerCallback> {
         mThumbDrawable.setAlpha(ScrollFade.ALPHA_MAX);
     }
 
+  @SuppressWarnings("unchecked")
     void scrollTo(float position) {
         int count = mList.getCount();
         mScrollCompleted = false;

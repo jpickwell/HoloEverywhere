@@ -1,11 +1,7 @@
 
 package org.holoeverywhere.demo.widget;
 
-import org.holoeverywhere.LayoutInflater;
-import org.holoeverywhere.demo.R;
-import org.holoeverywhere.widget.LinearLayout;
-import org.holoeverywhere.widget.TextView;
-
+import android.compat.view.ViewCompat;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.ColorDrawable;
@@ -13,6 +9,11 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
+
+import org.holoeverywhere.LayoutInflater;
+import org.holoeverywhere.demo.R;
+import org.holoeverywhere.widget.LinearLayout;
+import org.holoeverywhere.widget.TextView;
 
 public class DemoListRowView extends LinearLayout {
     private final TextView label;
@@ -57,7 +58,7 @@ public class DemoListRowView extends LinearLayout {
                     R.styleable.DemoListRowView_selectionHandlerVisiblity, 0) == 0);
         }
         if (a.hasValue(R.styleable.DemoListRowView_android_background)) {
-            setBackgroundDrawable(a.getDrawable(R.styleable.DemoListRowView_android_background));
+          ViewCompat.setBackground(this, a.getDrawable(R.styleable.DemoListRowView_android_background));
         }
         a.recycle();
     }
